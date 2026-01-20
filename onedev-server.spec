@@ -34,6 +34,8 @@ Source30:  tanuki-wrapper.conf
 
 Patch0:  ee-build-fix.patch
 
+Obsoletes:  onedev
+
 BuildRequires:  jdk-current
 BuildRequires:  maven >= 3.8.1
 BuildRequires:  tanuki-wrapper
@@ -118,6 +120,19 @@ Environment=JAVA_HOME=$JAVA_HOME
 [Install]
 WantedBy=multi-user.target
 EOF
+
+%pretrans
+# onedev -> onedev-server migration
+if getent passwd onedev >/dev/null && ! getent passwd %{name} >/dev/null; then
+	echo "Renaming system user onedev → %{name}"
+	usermod -l %{name} onedev
+	groupmod -n %{name} onedev || true
+
+	if [ -d /srv/onedev ]; then
+		mv /srv/onedev /srv/%{name}
+		usermod -d /srv/%{name} %{name}
+	fi
+fi
 
 %files
 %doc doc/images
