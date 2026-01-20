@@ -1,0 +1,3 @@
+g onedev-server
+u onedev-server - "OneDev server" /srv/onedev-server
+m onedev-server onedev-server docker

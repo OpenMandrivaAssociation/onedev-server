@@ -1,3 +1,3 @@
 sources:
-  wrapper-3.5.54.tar.gz: 441c38080f79cea161555f24c3871327c0960c73
-  onedev-9.0.5.tar.gz: 0cb983bceda086e850f861ed82eb1b8eb5153570
+  onedev-server-14.0.7-deps.tar.zst: e1b1c283354452ac2555076e4c64d0a19c2cc96c
+  onedev-server-14.0.7.tar.gz: 1da0b0e80c825eb97823931536778227833fa76a
