@@ -17,7 +17,7 @@
 
 Name:      onedev-server
 Version:   14.0.7
-Release:   1
+Release:   2
 Summary:   The powerful and simple DevOps platform
 URL:       https://code.onedev.io/onedev/server
 License:   MIT
@@ -132,22 +132,23 @@ EOF
 %dir %attr(0770,root,%{name}) %{dbpath}
 %dir %attr(0755,root,root) %{libpath}
 %dir %attr(0770,root,%{name}) %{temppath}
-%dir %attr(0775,root,%{name}) %{sitepath}
-%dir %attr(0775,root,%{name}) %{sitepath}/assets
-%dir %attr(0775,root,%{name}) %{sitepath}/assets/avatars
+%dir %attr(0770,root,%{name}) %{sitepath}
+%dir %attr(0770,root,%{name}) %{sitepath}/assets
+%dir %attr(0770,root,%{name}) %{sitepath}/assets/avatars
+%dir %attr(0755,root,root) %{rootpath}/incompatibilities
 %dir %attr(0755,root,root) %{sitepath}/lib
 
 %attr(0644,root,root) %{rootpath}/release.properties
 %config(noreplace) %attr(0640,root,%{name}) %{confpath}/hibernate.properties
-%config(noreplace) %attr(0644,root,root) %{confpath}/server.properties
+%config(noreplace) %attr(0640,root,%{name}) %{confpath}/server.properties
 %attr(0644,root,root) %{confpath}/logback.xml
 %attr(0644,root,root) %{confpath}/tanuki-wrapper.conf
 %attr(0644,root,root) %{bootpath}/*
 %attr(0644,root,root) %{libpath}/*
-%attr(0644,onedev-server,onedev-server) %{sitepath}/assets/avatars/*
+%attr(0640,onedev-server,onedev-server) %{sitepath}/assets/avatars/*
 %attr(0644,root,root) %{sitepath}/assets/prefetch.json
 %attr(0644,root,root) %{sitepath}/assets/robots.txt
+%attr(0644,root,root) %{rootpath}/incompatibilities/*
 %attr(0644,root,root) %{sitepath}/lib/*
 
-%attr(0644,root,root) %{rootpath}/incompatibilities
 %attr(0664,root,onedev-server) %{rootpath}/test
